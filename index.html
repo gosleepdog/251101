@@ -23,7 +23,7 @@
     body {
       margin: auto;
       overflow: hidden;
-      max-width: calc(100vh / 3 * 2);
+      max-width: calc(100vh / 355.6 * 215.9);
       background-color: var(--bgc);
       font-size: 16px;
     }
@@ -98,7 +98,7 @@
     #letter {
       position: absolute;
       left: 50%; top: 45%;
-      width: 90%; height: 202.5%;
+      width: 90%; height: 222.352941%;
       transform: translate(-50%, -50%);
     }
     .letter_content {
@@ -218,11 +218,15 @@
     
     function audioFadeIn(target, from, to, duration) {
       target.volume = from;
-      let step = (to - from) / (duration / 17);
+      let ms = 32;
+      let step = (to - from) / (duration / ms);
       let interval = setInterval(() => {
-        if (from >= to) clearInterval(interval);
+        if (from >= to) {
+          target.volume = to;
+          clearInterval(interval);
+        }
         else target.volume = (from += step);
-      }, 17);
+      }, ms);
     }
   </script>
 </body>
